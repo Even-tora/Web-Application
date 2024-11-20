@@ -1,4 +1,127 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Darker overlay for contrast */
+    display: flex; /* Flexbox to center content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    z-index: 1000;
+    backdrop-filter: blur(5px); /* Optional blur effect for modern feel */
+    animation: fadeIn 0.3s ease-in-out; /* Smooth fade-in effect */
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 12px; /* Rounded corners for a polished look */
+    width: 90%;
+    max-width: 600px; /* Set a max width to avoid stretching */
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Smooth shadow for depth */
+    overflow: hidden;
+    transform: translateY(-50px); /* Slight initial offset */
+    animation: slideIn 0.4s ease-out forwards; /* Slide-in effect for better UX */
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 20px;
+    background: linear-gradient(135deg, #4c6ef5, #1a3c78); /* Gradient background */
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Modal Body */
+.modal-body {
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.modal-body h3 {
+    margin: 20px 0;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+.modal-body p {
+    margin: 0;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 24px;
+    color: #fff;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover {
+    color: #e74c3c; /* Red color on hover for emphasis */
+}
+
+/* Keyframes for Modal Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Accessibility Enhancements */
+.modal:focus {
+    outline: none; /* Removes default focus outline */
+}
+
+.modal-content:focus {
+    outline: 2px solid #e74c3c; /* Adds a focus outline for better accessibility */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-width: 480px; /* Ensure it looks good on mobile */
+    }
+    .modal-header {
+        font-size: 16px;
+    }
+    .modal-body h3 {
+        font-size: 20px;
+    }
+    .modal-body p {
+        font-size: 14px;
+    }
+}
+
+/* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
     margin: 0;
@@ -7,7 +130,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* Header section */
+/* Header Section */
 header {
     width: 100%; 
     max-width: 100%;
@@ -17,7 +140,7 @@ header {
     align-items: center;
     position: relative;
     z-index: 1000;
-    background-color: #34495e;  /* Dark Gray-Blue for the header */
+    background-color: #34495e;
 }
 
 header nav a {
@@ -30,16 +153,16 @@ header nav a {
 }
 
 a.active {
-    background: #e74c3c;  /* Red for active links */
+    background: #e74c3c;
     border-radius: 2px;
 }
 
 a:hover {
-    background: #3498db;  /* Blue hover effect */
+    background: #3498db;
     border-radius: 2px;
 }
 
-/* Carousel */
+/* Carousel Section */
 .carousel {
     width: 100vw;
     height: 100vh;
@@ -101,7 +224,7 @@ a:hover {
     transform: translateY(-50%);
     width: 400px;
     text-align: left;
-    color: #333;  /* Dark Gray for the text */
+    color: #333;
     display: none;
 }
 
@@ -109,10 +232,11 @@ a:hover {
     display: block;
 }
 
+/* Content Styles */
 .content .title {
     font-size: 100px;
     text-transform: uppercase;
-    color: #e74c3c;  /* Red color for title */
+    color: #e74c3c;
     font-weight: bold;
     line-height: 1;
     opacity: 0;
@@ -125,16 +249,15 @@ a:hover {
     font-weight: bold;
     line-height: 1;
     opacity: 0;
-    color: #fff;  /* White color for name */
+    color: #fff;
     animation: animate 1s ease-in-out 0.6s 1 forwards;
 }
 
 .content .des {
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
     font-size: 20px;
     font-weight: bold;
-    color: #212121;  /* Dark Gray for description text */
+    color: #212121;
     text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.8);
     opacity: 0;
     animation: animate 1s ease-in-out 0.9s 1 forwards;
@@ -151,29 +274,26 @@ a:hover {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    border: 2px solid #fff;  /* White border for buttons */
-    background-color: #e74c3c;  /* Red background for primary button */
+    border: 2px solid #fff;
+    background-color: #e74c3c;
     color: #fff;
     transition: 0.3s;
 }
 
-.content .btn button:nth-child(1) {
-    margin-right: 15px;
-}
-
 .content .btn button:nth-child(2) {
     background: transparent;
-    color: #34495e;  /* Dark Gray-Blue for secondary button */
+    color: #34495e;
     border: 2px solid #fff;
     transition: 0.3s;
 }
 
 .content .btn button:nth-child(2):hover {
-    background-color: #34495e;  /* Dark Gray-Blue on hover for secondary button */
+    background-color: #34495e;
     color: #fff;
     border-color: #34495e;
 }
 
+/* Keyframes */
 @keyframes animate {
     from {
         opacity: 0;
@@ -187,7 +307,7 @@ a:hover {
     }
 }
 
-/* Next / Prev buttons */
+/* Arrows */
 .arrows {
     position: absolute;
     top: 80%;
@@ -204,7 +324,7 @@ a:hover {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #34495e;  /* Dark Gray-Blue for arrows */
+    background-color: #34495e;
     color: #fff;
     border: none;
     outline: none;
@@ -216,17 +336,17 @@ a:hover {
 }
 
 .arrows button:hover {
-    background: #e74c3c;  /* Red background for arrows on hover */
+    background: #e74c3c;
     color: #fff;
 }
 
-/* Time running */
+/* Time Running */
 .carousel .timeRunning {
     position: absolute;
     z-index: 1000;
     width: 0%;
     height: 4px;
-    background-color: #34495e;  /* Dark Gray-Blue for time progress */
+    background-color: #34495e;
     left: 0;
     top: 0;
     animation: runningTime 7s linear 1 forwards;
